@@ -1,128 +1,347 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cascadia Stormwater</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta
+    name="description"
+    content="Cascadia Stormwater provides 1200-C inspections, ESCP plan assistance, BMP oversight, and environmental compliance support."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-/* BODY */
-body {
-  font-family: Arial, sans-serif;
-  background: #0a2f4f;
-  color: white;
-}
+<header class="header">
+  <div class="container nav">
+    <img src="images/logo.png" class="logo">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Examples</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-/* HEADER */
-.header {
-  background: #052948;
-  padding: 15px 0;
-}
+<section class="hero">
+  <div class="hero-content">
+    <img src="images/logo.png" class="hero-logo">
+    <h1>Stormwater Compliance & Resource Protection</h1>
+    <p>Clear plans. Compliant sites. Protecting our water.</p>
+  </div>
+</section>
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: auto;
-}
+<section id="services" class="services">
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card">1200-C Inspections</div>
+    <div class="card">ESCP Plan Assistance</div>
+    <div class="card">BMP Oversight</div>
+    <div class="card">Water Resource Protection</div>
+  </div>
+</section>
 
-.logo {
-  height: 60px;
-}
+<section id="gallery" class="gallery">
+  <h2>Field Examples</h2>
 
-nav a {
-  margin-left: 20px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-}
+  <div class="gallery-grid">
 
-/* HERO */
-.hero {
-  background: url("images/hero-background.png") center/cover no-repeat;
-  padding: 100px 20px;
-  text-align: center;
-}
+    <div class="gallery-item">
+      <img src="images/silt-fence.jpg">
+      <div class="gallery-label">Silt Fence / Perimeter Control</div>
+    </div>
 
-.hero-logo {
-  width: 150px;
-  margin-bottom: 20px;
-}
+    <div class="gallery-item">
+      <img src="images/wattles.jpg">
+      <div class="gallery-label">Wattles / Slope Protection</div>
+    </div>
 
-/* SERVICES */
-.services {
-  padding: 60px 20px;
-  text-align: center;
-  background: #0c3b63;
-}
+    <div class="gallery-item">
+      <img src="images/inlet-protection.jpg">
+      <div class="gallery-label">Inlet Protection</div>
+    </div>
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-}
+    <div class="gallery-item">
+      <img src="images/active-construction.jpg">
+      <div class="gallery-label">Active Construction Site</div>
+    </div>
 
-.card {
-  background: #1c5a8a;
-  padding: 20px;
-  border-radius: 8px;
-}
+    <div class="gallery-item">
+      <img src="images/before-stabilization.jpg">
+      <div class="gallery-label">Before Stabilization</div>
+    </div>
 
-/* GALLERY */
-.gallery {
-  padding: 60px 20px;
-  background: #083761;
-}
+    <div class="gallery-item">
+      <img src="images/after-stabilization.jpg">
+      <div class="gallery-label">After Stabilization</div>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <img src="images/logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">Cascadia Stormwater</span>
+          <span class="brand-subtitle">Clear plans. Compliant sites. Protecting our water.</span>
+        </div>
+      </a>
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#examples">Examples</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-}
+    <div class="gallery-item">
+      <img src="images/erosion-control-blankets.jpg">
+      <div class="gallery-label">Erosion Control Blankets</div>
+    </div>
 
-.gallery-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
+    <div class="gallery-item">
+      <img src="images/hydroseeding.jpg">
+      <div class="gallery-label">Hydroseeding / Final Stabilization</div>
+  </header>
 
-/* FIXED GREEN LABELS */
-.gallery-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  <main id="top">
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">1200-C Inspections • ESCP Plan Assistance • Compliance Solutions</p>
+          <h1>Stormwater compliance with stronger water and resource protection focus.</h1>
+          <p class="hero-text">
+            Cascadia Stormwater supports active construction sites with practical environmental
+            compliance, erosion and sediment control oversight, and field-driven protection of
+            water quality and surrounding resources.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">View Services</a>
+            <a href="#examples" class="btn btn-secondary">See Field Examples</a>
+          </div>
+        </div>
 
-  background-color: #2f5f2b !important; /* SOLID GREEN */
-  color: #ffffff;
+        <div class="hero-logo-wrap">
+          <img src="images/logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
+        </div>
+      </div>
+    </section>
 
-  padding: 18px;
-  text-align: center;
+    <section class="intro-strip">
+      <div class="container intro-grid">
+        <article class="intro-card">
+          <h2>Environmental Compliance</h2>
+          <p>Field-usable support that keeps sites aligned with stormwater requirements and practical construction conditions.</p>
+        </article>
+        <article class="intro-card">
+          <h2>Water Quality Protection</h2>
+          <p>Focused on runoff control, sediment containment, inlet protection, stabilization, and discharge risk reduction.</p>
+        </article>
+        <article class="intro-card">
+          <h2>Resource Stewardship</h2>
+          <p>Built around protecting drainage features, nearby waters, soil stability, and site-specific environmental resources.</p>
+        </article>
+      </div>
+    </section>
 
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+    <section id="services" class="section services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Services</p>
+          <h2>Support built for active project sites</h2>
+          <p>
+            Practical environmental oversight and stormwater support designed for contractors,
+            field crews, and project teams that need clear direction on the ground.
+          </p>
+        </div>
 
-  z-index: 10;
-}
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-number">01</div>
+            <h3>1200-C Inspections</h3>
+            <p>
+              Routine site inspections, documentation, site observations, corrective action follow-up,
+              and compliance support tied to real field conditions.
+            </p>
+          </article>
 
-/* CONTACT */
-.contact {
-  padding: 60px 20px;
-  text-align: center;
-  background: #052948;
-}
+          <article class="service-card">
+            <div class="service-number">02</div>
+            <h3>ESCP Plan Assistance</h3>
+            <p>
+              Field review and implementation support to help align erosion and sediment control
+              planning with how work is actually being performed onsite.
+            </p>
+          </article>
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #021b30;
-}
+          <article class="service-card">
+            <div class="service-number">03</div>
+            <h3>BMP Oversight</h3>
+            <p>
+              Practical review of BMP placement, condition, maintenance needs, stabilization timing,
+              and whether controls are functioning as intended.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">04</div>
+            <h3>Compliance Solutions</h3>
+            <p>
+              Site-specific recommendations focused on keeping projects workable while reducing
+              erosion, sediment transport, discharge issues, and environmental risk.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section examples">
+      <div class="container">
+        <div class="section-heading section-heading-light">
+          <p class="section-label section-label-light">Field Examples</p>
+          <h2>Typical erosion and sediment control applications</h2>
+          <p>
+            These examples show common site controls, stabilization measures, inspection work,
+            and practical stormwater protection methods used in the field.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <img src="images/silt-fence.jpg" alt="Silt fence perimeter control" />
+            <div class="gallery-label">Silt Fence / Perimeter Control</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/wattles.jpg" alt="Wattles slope protection" />
+            <div class="gallery-label">Wattles / Slope Protection</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/inlet-protection.jpg" alt="Inlet protection example" />
+            <div class="gallery-label">Inlet Protection</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/active-construction.jpg" alt="Active construction site" />
+            <div class="gallery-label">Active Construction Site</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/before-stabilization.jpg" alt="Before stabilization" />
+            <div class="gallery-label">Before Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/after-stabilization.jpg" alt="After stabilization" />
+            <div class="gallery-label">After Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/erosion-control-blankets.jpg" alt="Erosion control blankets" />
+            <div class="gallery-label">Erosion Control Blankets</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/hydroseeding.jpg" alt="Hydroseeding final stabilization" />
+            <div class="gallery-label">Hydroseeding / Final Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/inspection-documentation.jpg" alt="Inspection and documentation" />
+            <div class="gallery-label">Inspection &amp; Documentation</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/check-dam.jpg" alt="Check dam flow control" />
+            <div class="gallery-label">Check Dam / Flow Control</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach">
+      <div class="container approach-grid">
+        <div class="approach-copy">
+          <p class="section-label">Approach</p>
+          <h2>Built around field conditions, not generic plan language.</h2>
+          <p>
+            Cascadia Stormwater is centered on the things that actually affect compliance onsite:
+            exposed soils, runoff paths, BMP functionality, stabilization timing, site sequencing,
+            and protection of nearby environmental resources.
+          </p>
+          <p>
+            The objective is direct: keep sites compliant, protect water quality, and make stormwater
+            requirements usable for construction teams in the field.
+          </p>
+        </div>
+
+        <div class="approach-panel">
+          <div class="approach-stat">
+            <strong>Clear Plans</strong>
+            <span>Requirements translated into field-usable direction.</span>
+          </div>
+          <div class="approach-stat">
+            <strong>Compliant Sites</strong>
+            <span>Focused on inspection, documentation, and corrective action follow-through.</span>
+          </div>
+          <div class="approach-stat">
+            <strong>Protecting Our Water</strong>
+            <span>Water quality and resource protection kept central to site decisions.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-box">
+        <div class="contact-copy">
+          <p class="section-label section-label-light">Contact</p>
+          <h2>Stormwater and environmental field support</h2>
+          <p>
+            Contact Cascadia Stormwater for inspections, plan assistance, BMP oversight, and
+            practical compliance support.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a href="tel:8087221362">808-722-1362</a>
+          <a href="mailto:cascadiastormwater@gmail.com">cascadiastormwater@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Cascadia Stormwater</p>
+      <p>1200-C Inspections • ESCP Plan Assistance • Compliance Solutions</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/inspection-documentation.jpg">
+      <div class="gallery-label">Inspection & Documentation</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/check-dam.jpg">
+      <div class="gallery-label">Check Dam / Flow Control</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>808-722-1362</p>
+  <p>cascadiastormwater@gmail.com</p>
+</section>
+
+<footer>
+  <p>© Cascadia Stormwater</p>
+</footer>
+
+  </footer>
+</body>
+</html>
