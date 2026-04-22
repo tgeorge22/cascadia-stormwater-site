@@ -191,129 +191,75 @@
       </div>
     </section>
 
-<section id="calculator" class="section pricing">
-  <div class="container">
-    <div class="section-heading">
-      <p class="section-label">Inspection Pricing Calculator</p>
-      <h2>Estimate erosion control inspection pricing by site size</h2>
-      <p>
-        Adjust the site size and options below for a quick estimate. This is a planning tool only.
-        Final pricing can vary based on travel, site conditions, permit requirements, and reporting scope.
-      </p>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="pricing-form">
-        <div class="form-group">
-          <label for="siteAcres">Site Size (acres)</label>
-          <input type="number" id="siteAcres" min="0.5" step="0.5" value="1" />
-        </div>
-
-        <div class="form-group">
-          <label for="inspectionType">Inspection Type</label>
-          <select id="inspectionType">
-            <option value="routine">Routine Weekly Inspection</option>
-            <option value="storm">Storm Event Inspection (+$150)</option>
-            <option value="both">Weekly + Storm Event Support (+$250)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="reportingLevel">Reporting Level</label>
-          <select id="reportingLevel">
-            <option value="standard">Standard Report</option>
-            <option value="detailed">Detailed Report + Photo Log (+$100)</option>
-          </select>
-        </div>
-
-        <div class="form-group checkbox-group">
-          <label><input type="checkbox" id="travelAdd" /> Travel surcharge (+$100)</label>
-          <label><input type="checkbox" id="sameDayAdd" /> Same-day corrective follow-up (+$150)</label>
-        </div>
-
-        <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">
-          Calculate
-        </button>
-      </div>
-
-      <div class="pricing-results">
-        <div class="result-card">
-          <span class="result-label">Estimated Inspection Price</span>
-          <div class="result-price" id="estimatedPrice">$600</div>
-          <p class="result-note" id="resultNote">
-            Based on a 1 acre site with a routine weekly inspection and standard reporting.
+    <section id="calculator" class="section pricing">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Inspection Pricing Calculator</p>
+          <h2>Estimate erosion control inspection pricing by site size</h2>
+          <p>
+            Adjust the site size and options below for a quick estimate. This is a planning tool only.
+            Final pricing can vary based on travel, site conditions, permit requirements, and reporting scope.
           </p>
         </div>
 
-        <div class="result-breakdown">
-          <h3>Pricing Breakdown</h3>
-          <ul id="breakdownList">
-            <li>Base inspection: $600</li>
-            <li>Site size adjustment: $0</li>
-            <li>Documentation fee: $0</li>
-            <li>Inspection type adjustment: $0</li>
-            <li>Reporting adjustment: $0</li>
-            <li>Optional add-ons: $0</li>
-          </ul>
+        <div class="pricing-grid">
+          <div class="pricing-form">
+            <div class="form-group">
+              <label for="siteAcres">Site Size (acres)</label>
+              <input type="number" id="siteAcres" min="1" max="9" step="1" value="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="inspectionType">Inspection Type</label>
+              <select id="inspectionType">
+                <option value="routine">Routine Weekly Inspection</option>
+                <option value="storm">Storm Event Inspection (+$150)</option>
+                <option value="both">Weekly + Storm Event Support (+$250)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="reportingLevel">Reporting Level</label>
+              <select id="reportingLevel">
+                <option value="standard">Standard Report</option>
+                <option value="detailed">Detailed Report + Photo Log (+$100)</option>
+              </select>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label><input type="checkbox" id="travelAdd" /> Travel surcharge (+$100)</label>
+              <label><input type="checkbox" id="sameDayAdd" /> Same-day corrective follow-up (+$150)</label>
+            </div>
+
+            <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">
+              Calculate
+            </button>
+          </div>
+
+          <div class="pricing-results">
+            <div class="result-card">
+              <span class="result-label">Estimated Inspection Price</span>
+              <div class="result-price" id="estimatedPrice">$600</div>
+              <p class="result-note" id="resultNote">
+                Based on a 1 acre site with a routine weekly inspection and standard reporting.
+              </p>
+            </div>
+
+            <div class="result-breakdown">
+              <h3>Pricing Breakdown</h3>
+              <ul id="breakdownList">
+                <li>Base inspection: $600</li>
+                <li>Site size adjustment: $0</li>
+                <li>Documentation fee: $0</li>
+                <li>Inspection type adjustment: $0</li>
+                <li>Reporting adjustment: $0</li>
+                <li>Optional add-ons: $0</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<script>
-function calculatePrice() {
-    let acres = parseFloat(document.getElementById("siteAcres").value);
-
-    if (isNaN(acres) || acres <= 0) acres = 1;
-
-    // Cap at 9 acres
-    if (acres > 9) acres = 9;
-
-    let basePrice = 600;
-
-    // Charge only for acres above 1
-    let additionalAcres = Math.max(0, Math.ceil(acres) - 1);
-    let acreageCost = additionalAcres * 500;
-
-    // Documentation fee
-    let docFee = acres > 5 ? 150 : 0;
-
-    // Inspection type
-    let inspectionType = document.getElementById("inspectionType").value;
-    let inspectionCost = 0;
-    if (inspectionType === "storm") inspectionCost = 150;
-    if (inspectionType === "both") inspectionCost = 250;
-
-    // Reporting
-    let reportingLevel = document.getElementById("reportingLevel").value;
-    let reportingCost = reportingLevel === "detailed" ? 100 : 0;
-
-    // Add-ons
-    let travel = document.getElementById("travelAdd").checked ? 100 : 0;
-    let sameDay = document.getElementById("sameDayAdd").checked ? 150 : 0;
-
-    let total = basePrice + acreageCost + docFee + inspectionCost + reportingCost + travel + sameDay;
-
-    // Output
-    document.getElementById("estimatedPrice").innerText = "$" + total;
-
-    document.getElementById("breakdownList").innerHTML = `
-        <li>Base inspection: $${basePrice}</li>
-        <li>Site size adjustment: $${acreageCost}</li>
-        <li>Documentation fee: $${docFee}</li>
-        <li>Inspection type adjustment: $${inspectionCost}</li>
-        <li>Reporting adjustment: $${reportingCost}</li>
-        <li>Optional add-ons: $${travel + sameDay}</li>
-    `;
-
-    document.getElementById("resultNote").innerText =
-        acres + " acre site with selected inspection and reporting options.";
-}
-
-// Run once on load so default shows correctly
-calculatePrice();
-</script>
+    </section>
 
     <section id="contact" class="section contact">
       <div class="container contact-box">
@@ -351,58 +297,62 @@ calculatePrice();
     }
 
     function calculatePrice() {
-      const acres = parseFloat(document.getElementById("siteAcres").value) || 0;
+      let acres = parseFloat(document.getElementById("siteAcres").value);
+
+      if (isNaN(acres) || acres < 1) acres = 1;
+      if (acres > 9) acres = 9;
+
+      acres = Math.ceil(acres);
+
       const inspectionType = document.getElementById("inspectionType").value;
       const reportingLevel = document.getElementById("reportingLevel").value;
       const travelAdd = document.getElementById("travelAdd").checked;
       const sameDayAdd = document.getElementById("sameDayAdd").checked;
 
-      let basePrice = 600;
-      let sizeAdjustment = 0;
-      let typeAdjustment = 0;
-      let reportingAdjustment = 0;
-      let addOns = 0;
+      const basePrice = 600;
+      const siteSizeAdjustment = Math.max(0, acres - 1) * 500;
+      const documentationFee = acres > 5 ? 150 : 0;
 
-      if (acres <= 1) {
-        sizeAdjustment = 75;
-      } else if (acres <= 5) {
-        sizeAdjustment = 150;
-      } else if (acres <= 10) {
-        sizeAdjustment = 275;
-      } else {
-        sizeAdjustment = 275 + ((Math.ceil(acres) - 10) * 20);
-      }
+      let inspectionTypeAdjustment = 0;
+      if (inspectionType === "storm") inspectionTypeAdjustment = 150;
+      if (inspectionType === "both") inspectionTypeAdjustment = 250;
 
-      if (inspectionType === "storm") {
-        typeAdjustment = 100;
-      } else if (inspectionType === "both") {
-        typeAdjustment = 175;
-      }
+      const reportingAdjustment = reportingLevel === "detailed" ? 100 : 0;
 
-      if (reportingLevel === "detailed") {
-        reportingAdjustment = 75;
-      }
+      let optionalAddOns = 0;
+      if (travelAdd) optionalAddOns += 100;
+      if (sameDayAdd) optionalAddOns += 150;
 
-      if (travelAdd) {
-        addOns += 65;
-      }
-
-      if (sameDayAdd) {
-        addOns += 125;
-      }
-
-      const total = basePrice + sizeAdjustment + typeAdjustment + reportingAdjustment + addOns;
+      const total =
+        basePrice +
+        siteSizeAdjustment +
+        documentationFee +
+        inspectionTypeAdjustment +
+        reportingAdjustment +
+        optionalAddOns;
 
       document.getElementById("estimatedPrice").textContent = formatCurrency(total);
+
+      const inspectionTypeText =
+        inspectionType === "routine"
+          ? "a routine weekly inspection"
+          : inspectionType === "storm"
+          ? "a storm event inspection"
+          : "weekly and storm event support";
+
+      const reportingText =
+        reportingLevel === "standard" ? "standard reporting" : "detailed reporting";
+
       document.getElementById("resultNote").textContent =
-        `Based on a ${acres} acre site with ${inspectionType === "routine" ? "a routine weekly inspection" : inspectionType === "storm" ? "a storm event inspection" : "weekly and storm event support"} and ${reportingLevel === "standard" ? "standard reporting" : "detailed reporting"}.`;
+        `Based on a ${acres} acre site with ${inspectionTypeText} and ${reportingText}.`;
 
       document.getElementById("breakdownList").innerHTML = `
         <li>Base inspection: ${formatCurrency(basePrice)}</li>
-        <li>Site size adjustment: ${formatCurrency(sizeAdjustment)}</li>
-        <li>Inspection type adjustment: ${formatCurrency(typeAdjustment)}</li>
+        <li>Site size adjustment: ${formatCurrency(siteSizeAdjustment)}</li>
+        <li>Documentation fee: ${formatCurrency(documentationFee)}</li>
+        <li>Inspection type adjustment: ${formatCurrency(inspectionTypeAdjustment)}</li>
         <li>Reporting adjustment: ${formatCurrency(reportingAdjustment)}</li>
-        <li>Optional add-ons: ${formatCurrency(addOns)}</li>
+        <li>Optional add-ons: ${formatCurrency(optionalAddOns)}</li>
       `;
     }
 
