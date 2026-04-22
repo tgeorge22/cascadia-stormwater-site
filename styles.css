@@ -1,535 +1,252 @@
-:root {
-  --navy: #083761;
-  --navy-dark: #052948;
-  --green: #2f5f2b;
-  --green-dark: #23461f;
-  --bg: #f3f6f7;
-  --surface: #ffffff;
-  --text: #163047;
-  --muted: #587082;
-  --line: rgba(8, 55, 97, 0.12);
-  --shadow: 0 18px 44px rgba(8, 55, 97, 0.12);
-  --radius-lg: 24px;
-  --radius-md: 18px;
-  --max-width: 1200px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(11, 109, 178, 0.07), transparent 26%),
-    linear-gradient(180deg, #f7fafb 0%, #eef4f3 100%);
-  line-height: 1.6;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(calc(100% - 32px), var(--max-width));
-  margin: 0 auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav {
-  min-height: 86px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
-
-.brand-logo {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.brand-title {
-  font-size: 1.18rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--navy-dark);
-}
-
-.brand-subtitle {
-  font-size: 0.88rem;
-  color: var(--muted);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.nav-links a {
-  font-size: 0.96rem;
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.nav-links a:hover {
-  color: var(--green-dark);
-}
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(5, 41, 72, 0.9), rgba(8, 55, 97, 0.72)),
-    url("images/hydroseeding.jpg") center/cover no-repeat;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12), transparent 20%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.18));
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 32px;
-  align-items: center;
-  min-height: 640px;
-  padding: 84px 0 72px;
-}
-
-.eyebrow,
-.section-label {
-  margin: 0 0 14px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.eyebrow {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.hero-copy {
-  color: #fff;
-}
-
-.hero-copy h1 {
-  margin: 0 0 18px;
-  font-size: clamp(2.3rem, 4vw, 4.5rem);
-  line-height: 1.06;
-  max-width: 760px;
-}
-
-.hero-text {
-  margin: 0;
-  max-width: 660px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.06rem;
-}
-
-.hero-actions {
-  margin-top: 30px;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  min-height: 50px;
-  padding: 0 20px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-.btn-primary {
-  background: #fff;
-  color: var(--navy-dark);
-}
-
-.btn-secondary {
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.hero-logo-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-logo {
-  width: min(100%, 520px);
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 28px;
-  padding: 18px;
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.2);
-}
-
-.intro-strip {
-  position: relative;
-  margin-top: -42px;
-  z-index: 2;
-}
-
-.intro-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.intro-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-
-.intro-card h2 {
-  margin: 0 0 10px;
-  color: var(--navy-dark);
-  font-size: 1.08rem;
-}
-
-.intro-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.section {
-  padding: 92px 0;
-}
-
-.section-heading {
-  max-width: 760px;
-  margin-bottom: 34px;
-}
-
-.section-heading-light {
-  color: #fff;
-}
-
-.section-label {
-  color: var(--green);
-}
-
-.section-label-light {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.section-heading h2,
-.approach-copy h2,
-.contact-copy h2 {
-  margin: 0 0 14px;
-  font-size: clamp(1.9rem, 3vw, 3.2rem);
-  line-height: 1.1;
-}
-
-.section-heading p,
-.approach-copy p,
-.contact-copy p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.section-heading-light p {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.service-card {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: var(--shadow);
-}
-
-.service-number {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, rgba(8, 55, 97, 0.1), rgba(47, 95, 43, 0.16));
-  color: var(--navy-dark);
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.service-card h3 {
-  margin: 0 0 10px;
-  font-size: 1.16rem;
-}
-
-.service-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.examples {
-  background:
-    linear-gradient(180deg, rgba(8, 55, 97, 0.94), rgba(6, 37, 64, 0.96)),
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 24%);
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0;
-  background: #0a2743;
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
-  min-height: 320px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  transform: scale(1.05);
-  position: relative;
-  z-index: 1;
-}
-
-.gallery-label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
-  height: 72px;
-  background: #052948;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
-  line-height: 1.2;
-}
-
-.gallery-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  pointer-events: none;
-  z-index: 6;
-}
-
-.approach {
-  background:
-    linear-gradient(180deg, rgba(47, 95, 43, 0.05), rgba(255, 255, 255, 0.48));
-}
-
-.approach-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.approach-panel {
-  background: linear-gradient(180deg, var(--green-dark), var(--green));
-  color: #fff;
-  padding: 30px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-}
-
-.approach-stat + .approach-stat {
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.approach-stat strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 1.22rem;
-}
-
-.approach-stat span {
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.contact {
-  padding-top: 0;
-}
-
-.contact-box {
-  background:
-    linear-gradient(135deg, rgba(5, 41, 72, 0.92), rgba(8, 55, 97, 0.8)),
-    url("images/check-dam.jpg") center/cover no-repeat;
-  color: #fff;
-  border-radius: 28px;
-  padding: 42px;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 24px;
-  align-items: center;
-  box-shadow: var(--shadow);
-}
-
-.contact-copy p {
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
-}
-
-.contact-links a {
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.08rem;
-  word-break: break-word;
-}
-
-.site-footer {
-  padding: 24px 0 42px;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  font-size: 0.95rem;
-}
-
-@media (max-width: 1100px) {
-  .hero-inner,
-  .approach-grid,
-  .contact-box,
-  .intro-grid,
-  .services-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-item {
-    min-height: 340px;
-  }
-}
-
-@media (max-width: 760px) {
-  .nav {
-    min-height: auto;
-    padding: 16px 0;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .hero-inner {
-    min-height: auto;
-    padding: 64px 0 64px;
-  }
-
-  .hero-copy h1 {
-    font-size: 2.4rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .brand-logo {
-    width: 60px;
-    height: 60px;
-  }
-
-  .gallery-item {
-    min-height: 260px;
-  }
-
-  .contact-box,
-  .service-card,
-  .intro-card,
-  .approach-panel {
-    padding: 24px;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cascadia Stormwater</title>
+  <meta
+    name="description"
+    content="Cascadia Stormwater provides 1200-C inspections, ESCP plan assistance, BMP oversight, and environmental compliance support."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">Cascadia Stormwater</span>
+          <span class="brand-subtitle">Clear plans. Compliant sites. Protecting our water.</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#examples">Examples</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">1200-C Inspections • ESCP Plan Assistance • Compliance Solutions</p>
+          <h1>Stormwater compliance with stronger water and resource protection focus.</h1>
+          <p class="hero-text">
+            Cascadia Stormwater supports active construction sites with practical environmental
+            compliance, erosion and sediment control oversight, and field-driven protection of
+            water quality and surrounding resources.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">View Services</a>
+            <a href="#examples" class="btn btn-secondary">See Field Examples</a>
+          </div>
+        </div>
+
+        <div class="hero-logo-wrap">
+          <img src="logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-strip">
+      <div class="container intro-grid">
+        <article class="intro-card">
+          <h2>Environmental Compliance</h2>
+          <p>Field-usable support that keeps sites aligned with stormwater requirements and practical construction conditions.</p>
+        </article>
+        <article class="intro-card">
+          <h2>Water Quality Protection</h2>
+          <p>Focused on runoff control, sediment containment, inlet protection, stabilization, and discharge risk reduction.</p>
+        </article>
+        <article class="intro-card">
+          <h2>Resource Stewardship</h2>
+          <p>Built around protecting drainage features, nearby waters, soil stability, and site-specific environmental resources.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Services</p>
+          <h2>Support built for active project sites</h2>
+          <p>
+            Practical environmental oversight and stormwater support designed for contractors,
+            field crews, and project teams that need clear direction on the ground.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-number">01</div>
+            <h3>1200-C Inspections</h3>
+            <p>
+              Routine site inspections, documentation, site observations, corrective action follow-up,
+              and compliance support tied to real field conditions.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">02</div>
+            <h3>ESCP Plan Assistance</h3>
+            <p>
+              Field review and implementation support to help align erosion and sediment control
+              planning with how work is actually being performed onsite.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">03</div>
+            <h3>BMP Oversight</h3>
+            <p>
+              Practical review of BMP placement, condition, maintenance needs, stabilization timing,
+              and whether controls are functioning as intended.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">04</div>
+            <h3>Compliance Solutions</h3>
+            <p>
+              Site-specific recommendations focused on keeping projects workable while reducing
+              erosion, sediment transport, discharge issues, and environmental risk.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section examples">
+      <div class="container">
+        <div class="section-heading section-heading-light">
+          <p class="section-label">Field Examples</p>
+          <h2>Typical erosion and sediment control applications</h2>
+          <p>
+            Upload your own images into the same folder as this file or into an <strong>images</strong>
+            folder. These filenames are already wired into the gallery below.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <img src="images/silt-fence.jpg" alt="Silt fence perimeter control" />
+            <div class="gallery-label">Silt Fence / Perimeter Control</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/wattles.jpg" alt="Wattles slope protection" />
+            <div class="gallery-label">Wattles / Slope Protection</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/inlet-protection.jpg" alt="Inlet protection example" />
+            <div class="gallery-label">Inlet Protection</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/active-construction.jpg" alt="Active construction site" />
+            <div class="gallery-label">Active Construction Site</div>
+          </article>
+
+          <article class="gallery-item">
+            <div class="before-after">
+              <div class="before-after-panel">
+                <img src="images/before-stabilization.jpg" alt="Before stabilization" />
+                <span class="mini-tag">Before</span>
+              </div>
+              <div class="before-after-panel">
+                <img src="images/after-stabilization.jpg" alt="After stabilization" />
+                <span class="mini-tag">After</span>
+              </div>
+            </div>
+            <div class="gallery-label">Before / After Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/erosion-control-blankets.jpg" alt="Erosion control blankets" />
+            <div class="gallery-label">Erosion Control Blankets</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/hydroseeding.jpg" alt="Hydroseeding final stabilization" />
+            <div class="gallery-label">Hydroseeding / Final Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/inspection-documentation.jpg" alt="Inspection and documentation" />
+            <div class="gallery-label">Inspection &amp; Documentation</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/check-dam.jpg" alt="Check dam flow control" />
+            <div class="gallery-label">Check Dam / Flow Control</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach">
+      <div class="container approach-grid">
+        <div class="approach-copy">
+          <p class="section-label">Approach</p>
+          <h2>Built around field conditions, not generic plan language.</h2>
+          <p>
+            Cascadia Stormwater is centered on the things that actually affect compliance onsite:
+            exposed soils, runoff paths, BMP functionality, stabilization timing, site sequencing,
+            and protection of nearby environmental resources.
+          </p>
+          <p>
+            The objective is direct: keep sites compliant, protect water quality, and make stormwater
+            requirements usable for construction teams in the field.
+          </p>
+        </div>
+
+        <div class="approach-panel">
+          <div class="approach-stat">
+            <strong>Clear Plans</strong>
+            <span>Requirements translated into field-usable direction.</span>
+          </div>
+          <div class="approach-stat">
+            <strong>Compliant Sites</strong>
+            <span>Focused on inspection, documentation, and corrective action follow-through.</span>
+          </div>
+          <div class="approach-stat">
+            <strong>Protecting Our Water</strong>
+            <span>Water quality and resource protection kept central to site decisions.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-box">
+        <div class="contact-copy">
+          <p class="section-label section-label-light">Contact</p>
+          <h2>Stormwater and environmental field support</h2>
+          <p>
+            Contact Cascadia Stormwater for inspections, plan assistance, BMP oversight, and
+            practical compliance support.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a href="tel:8087221362">808-722-1362</a>
+          <a href="mailto:cascadiastormwater@gmail.com">cascadiastormwater@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Cascadia Stormwater</p>
+      <p>1200-C Inspections • ESCP Plan Assistance • Compliance Solutions</p>
+    </div>
+  </footer>
+</body>
+</html>
