@@ -5,15 +5,15 @@ body {
   color: #123;
 }
 
+.container {
+  width: 90%;
+  margin: auto;
+}
+
 /* NAV */
 .header {
   background: #0b3d3b;
   padding: 10px 0;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
 }
 
 .nav {
@@ -84,26 +84,45 @@ nav a {
   position: relative;
   overflow: hidden;
   height: 250px;
+  background: #0a2743;
 }
 
+/* crop + zoom to remove baked text */
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
+  transform: scale(1.05);
 }
 
-/* FIXED LABEL (NO TRANSPARENCY ISSUE) */
+/* solid overlay bar (fully hides old text) */
 .gallery-label {
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 70px;
   background: #052948;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+
   color: white;
   font-weight: bold;
-  padding: 12px;
-  text-align: center;
   font-size: 13px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* subtle grid lines */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,255,255,0.05);
 }
 
 /* CONTACT */
