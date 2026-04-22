@@ -191,105 +191,129 @@
       </div>
     </section>
 
-    <section id="calculator" class="section pricing">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Inspection Pricing Calculator</p>
-          <h2>Estimate erosion control inspection pricing by site size</h2>
-          <p>
-            Adjust the site size and options below for a quick estimate. This is a planning tool only.
-            Final pricing can vary based on travel, site conditions, permit requirements, and reporting scope.
+<section id="calculator" class="section pricing">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-label">Inspection Pricing Calculator</p>
+      <h2>Estimate erosion control inspection pricing by site size</h2>
+      <p>
+        Adjust the site size and options below for a quick estimate. This is a planning tool only.
+        Final pricing can vary based on travel, site conditions, permit requirements, and reporting scope.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-form">
+        <div class="form-group">
+          <label for="siteAcres">Site Size (acres)</label>
+          <input type="number" id="siteAcres" min="0.5" step="0.5" value="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="inspectionType">Inspection Type</label>
+          <select id="inspectionType">
+            <option value="routine">Routine Weekly Inspection</option>
+            <option value="storm">Storm Event Inspection (+$150)</option>
+            <option value="both">Weekly + Storm Event Support (+$250)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="reportingLevel">Reporting Level</label>
+          <select id="reportingLevel">
+            <option value="standard">Standard Report</option>
+            <option value="detailed">Detailed Report + Photo Log (+$100)</option>
+          </select>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label><input type="checkbox" id="travelAdd" /> Travel surcharge (+$100)</label>
+          <label><input type="checkbox" id="sameDayAdd" /> Same-day corrective follow-up (+$150)</label>
+        </div>
+
+        <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">
+          Calculate
+        </button>
+      </div>
+
+      <div class="pricing-results">
+        <div class="result-card">
+          <span class="result-label">Estimated Inspection Price</span>
+          <div class="result-price" id="estimatedPrice">$600</div>
+          <p class="result-note" id="resultNote">
+            Based on a 1 acre site with a routine weekly inspection and standard reporting.
           </p>
         </div>
 
-        <div class="pricing-grid">
-          <div class="pricing-form">
-            <div class="form-group">
-              <label for="siteAcres">Site Size (acres)</label>
-              <input type="number" id="siteAcres" min="0" step="0.5" value="1" />
-            </div>
-
-            <div class="form-group">
-              <label for="inspectionType">Inspection Type</label>
-              <select id="inspectionType">
-                <option value="routine">Routine Weekly Inspection</option>
-                <option value="storm">Storm Event Inspection</option>
-                <option value="both">Weekly + Storm Event Support</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="reportingLevel">Reporting Level</label>
-              <select id="reportingLevel">
-                <option value="standard">Standard Report</option>
-                <option value="detailed">Detailed Report + Photo Log</option>
-              </select>
-            </div>
-
-            <div class="form-group checkbox-group">
-              <label><input type="checkbox" id="travelAdd" /> Include travel surcharge</label>
-              <label><input type="checkbox" id="sameDayAdd" /> Same-day corrective action follow-up</label>
-            </div>
-
-            <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">Calculate</button>
-          </div>
-
-          <div class="pricing-results">
-            <div class="result-card">
-              <span class="result-label">Estimated Inspection Price</span>
-              <div class="result-price" id="estimatedPrice">$675</div>
-              <p class="result-note" id="resultNote">
-                Based on a 1 acre site with a routine weekly inspection and standard reporting.
-              </p>
-            </div>
-
-            <div class="result-breakdown">
-              <h3>Pricing Breakdown</h3>
-              <ul id="breakdownList">
-                <li>Base inspection: $600</li>
-                <li>Site size adjustment: $500</li>
-                <li>Inspection type adjustment: $0</li>
-                <li>Reporting adjustment: $0</li>
-                <li>Optional add-ons: $0</li>
-              </ul>
-            </div>
-          </div>
+        <div class="result-breakdown">
+          <h3>Pricing Breakdown</h3>
+          <ul id="breakdownList">
+            <li>Base inspection: $600</li>
+            <li>Site size adjustment: $0</li>
+            <li>Documentation fee: $0</li>
+            <li>Inspection type adjustment: $0</li>
+            <li>Reporting adjustment: $0</li>
+            <li>Optional add-ons: $0</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section approach">
-      <div class="container approach-grid">
-        <div class="approach-copy">
-          <p class="section-label">Approach</p>
-          <h2>Built around field conditions, not generic plan language.</h2>
-          <p>
-            Cascadia Stormwater is centered on the things that actually affect compliance onsite:
-            exposed soils, runoff paths, BMP functionality, stabilization timing, site sequencing,
-            and protection of nearby environmental resources.
-          </p>
-          <p>
-            The objective is direct: keep sites compliant, protect water quality, and make stormwater
-            requirements usable for construction teams in the field.
-          </p>
-        </div>
+<script>
+function calculatePrice() {
+    let acres = parseFloat(document.getElementById("siteAcres").value);
 
-        <div class="approach-panel">
-          <div class="approach-stat">
-            <strong>Clear Plans</strong>
-            <span>Requirements translated into field-usable direction.</span>
-          </div>
-          <div class="approach-stat">
-            <strong>Compliant Sites</strong>
-            <span>Focused on inspection, documentation, and corrective action follow-through.</span>
-          </div>
-          <div class="approach-stat">
-            <strong>Protecting Our Water</strong>
-            <span>Water quality and resource protection kept central to site decisions.</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    if (isNaN(acres) || acres <= 0) acres = 1;
+
+    // Cap at 9 acres
+    if (acres > 9) acres = 9;
+
+    let basePrice = 600;
+
+    // Charge only for acres above 1
+    let additionalAcres = Math.max(0, Math.ceil(acres) - 1);
+    let acreageCost = additionalAcres * 500;
+
+    // Documentation fee
+    let docFee = acres > 5 ? 150 : 0;
+
+    // Inspection type
+    let inspectionType = document.getElementById("inspectionType").value;
+    let inspectionCost = 0;
+    if (inspectionType === "storm") inspectionCost = 150;
+    if (inspectionType === "both") inspectionCost = 250;
+
+    // Reporting
+    let reportingLevel = document.getElementById("reportingLevel").value;
+    let reportingCost = reportingLevel === "detailed" ? 100 : 0;
+
+    // Add-ons
+    let travel = document.getElementById("travelAdd").checked ? 100 : 0;
+    let sameDay = document.getElementById("sameDayAdd").checked ? 150 : 0;
+
+    let total = basePrice + acreageCost + docFee + inspectionCost + reportingCost + travel + sameDay;
+
+    // Output
+    document.getElementById("estimatedPrice").innerText = "$" + total;
+
+    document.getElementById("breakdownList").innerHTML = `
+        <li>Base inspection: $${basePrice}</li>
+        <li>Site size adjustment: $${acreageCost}</li>
+        <li>Documentation fee: $${docFee}</li>
+        <li>Inspection type adjustment: $${inspectionCost}</li>
+        <li>Reporting adjustment: $${reportingCost}</li>
+        <li>Optional add-ons: $${travel + sameDay}</li>
+    `;
+
+    document.getElementById("resultNote").innerText =
+        acres + " acre site with selected inspection and reporting options.";
+}
+
+// Run once on load so default shows correctly
+calculatePrice();
+</script>
 
     <section id="contact" class="section contact">
       <div class="container contact-box">
