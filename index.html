@@ -14,7 +14,7 @@
   <header class="site-header">
     <div class="container nav">
       <a href="#top" class="brand">
-        <img src="logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
+        <img src="images/logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-title">Cascadia Stormwater</span>
           <span class="brand-subtitle">Clear plans. Compliant sites. Protecting our water.</span>
@@ -24,6 +24,7 @@
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#examples">Examples</a>
+        <a href="#calculator">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -48,7 +49,7 @@
         </div>
 
         <div class="hero-logo-wrap">
-          <img src="logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
+          <img src="images/logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
         </div>
       </div>
     </section>
@@ -190,6 +191,73 @@
       </div>
     </section>
 
+    <section id="calculator" class="section pricing">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Inspection Pricing Calculator</p>
+          <h2>Estimate erosion control inspection pricing by site size</h2>
+          <p>
+            Adjust the site size and options below for a quick estimate. This is a planning tool only.
+            Final pricing can vary based on travel, site conditions, permit requirements, and reporting scope.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-form">
+            <div class="form-group">
+              <label for="siteAcres">Site Size (acres)</label>
+              <input type="number" id="siteAcres" min="0" step="0.1" value="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="inspectionType">Inspection Type</label>
+              <select id="inspectionType">
+                <option value="routine">Routine Weekly Inspection</option>
+                <option value="storm">Storm Event Inspection</option>
+                <option value="both">Weekly + Storm Event Support</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="reportingLevel">Reporting Level</label>
+              <select id="reportingLevel">
+                <option value="standard">Standard Report</option>
+                <option value="detailed">Detailed Report + Photo Log</option>
+              </select>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label><input type="checkbox" id="travelAdd" /> Include travel surcharge</label>
+              <label><input type="checkbox" id="sameDayAdd" /> Same-day corrective action follow-up</label>
+            </div>
+
+            <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">Calculate</button>
+          </div>
+
+          <div class="pricing-results">
+            <div class="result-card">
+              <span class="result-label">Estimated Inspection Price</span>
+              <div class="result-price" id="estimatedPrice">$675</div>
+              <p class="result-note" id="resultNote">
+                Based on a 1 acre site with a routine weekly inspection and standard reporting.
+              </p>
+            </div>
+
+            <div class="result-breakdown">
+              <h3>Pricing Breakdown</h3>
+              <ul id="breakdownList">
+                <li>Base inspection: $600</li>
+                <li>Site size adjustment: $75</li>
+                <li>Inspection type adjustment: $0</li>
+                <li>Reporting adjustment: $0</li>
+                <li>Optional add-ons: $0</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section approach">
       <div class="container approach-grid">
         <div class="approach-copy">
@@ -248,5 +316,73 @@
       <p>1200-C Inspections • ESCP Plan Assistance • Compliance Solutions</p>
     </div>
   </footer>
+
+  <script>
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0
+      }).format(amount);
+    }
+
+    function calculatePrice() {
+      const acres = parseFloat(document.getElementById("siteAcres").value) || 0;
+      const inspectionType = document.getElementById("inspectionType").value;
+      const reportingLevel = document.getElementById("reportingLevel").value;
+      const travelAdd = document.getElementById("travelAdd").checked;
+      const sameDayAdd = document.getElementById("sameDayAdd").checked;
+
+      let basePrice = 600;
+      let sizeAdjustment = 0;
+      let typeAdjustment = 0;
+      let reportingAdjustment = 0;
+      let addOns = 0;
+
+      if (acres <= 1) {
+        sizeAdjustment = 75;
+      } else if (acres <= 5) {
+        sizeAdjustment = 150;
+      } else if (acres <= 10) {
+        sizeAdjustment = 275;
+      } else {
+        sizeAdjustment = 275 + ((Math.ceil(acres) - 10) * 20);
+      }
+
+      if (inspectionType === "storm") {
+        typeAdjustment = 100;
+      } else if (inspectionType === "both") {
+        typeAdjustment = 175;
+      }
+
+      if (reportingLevel === "detailed") {
+        reportingAdjustment = 75;
+      }
+
+      if (travelAdd) {
+        addOns += 65;
+      }
+
+      if (sameDayAdd) {
+        addOns += 125;
+      }
+
+      const total = basePrice + sizeAdjustment + typeAdjustment + reportingAdjustment + addOns;
+
+      document.getElementById("estimatedPrice").textContent = formatCurrency(total);
+      document.getElementById("resultNote").textContent =
+        `Based on a ${acres} acre site with ${inspectionType === "routine" ? "a routine weekly inspection" : inspectionType === "storm" ? "a storm event inspection" : "weekly and storm event support"} and ${reportingLevel === "standard" ? "standard reporting" : "detailed reporting"}.`;
+
+      document.getElementById("breakdownList").innerHTML = `
+        <li>Base inspection: ${formatCurrency(basePrice)}</li>
+        <li>Site size adjustment: ${formatCurrency(sizeAdjustment)}</li>
+        <li>Inspection type adjustment: ${formatCurrency(typeAdjustment)}</li>
+        <li>Reporting adjustment: ${formatCurrency(reportingAdjustment)}</li>
+        <li>Optional add-ons: ${formatCurrency(addOns)}</li>
+      `;
+    }
+
+    calculatePrice();
+  </script>
 </body>
 </html>
