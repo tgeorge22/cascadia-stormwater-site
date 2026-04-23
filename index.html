@@ -44,7 +44,7 @@
           </p>
           <div class="hero-actions">
             <a href="#services" class="btn btn-primary">View Services</a>
-            <a href="#examples" class="btn btn-secondary">See Field Examples</a>
+            <a href="#calculator" class="btn btn-secondary">Estimate Pricing</a>
           </div>
         </div>
 
@@ -193,7 +193,7 @@
 
     <section id="calculator" class="section pricing">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading pricing-heading">
           <p class="section-label">Inspection Pricing Calculator</p>
           <h2>Estimate erosion control inspection pricing by site size</h2>
           <p>
@@ -202,56 +202,78 @@
           </p>
         </div>
 
-        <div class="pricing-grid">
-          <div class="pricing-form">
-            <div class="form-group">
-              <label for="siteAcres">Site Size (acres)</label>
-              <input type="number" id="siteAcres" min="0" step="0.1" value="1" />
+        <div class="pricing-shell">
+          <div class="pricing-grid">
+            <div class="pricing-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="siteAcres">Site Size (acres)</label>
+                  <input type="number" id="siteAcres" min="0" step="0.1" value="1" />
+                </div>
+
+                <div class="form-group">
+                  <label for="inspectionType">Inspection Type</label>
+                  <select id="inspectionType">
+                    <option value="routine">Routine Weekly Inspection</option>
+                    <option value="storm">Storm Event Inspection</option>
+                    <option value="both">Weekly + Storm Event Support</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="reportingLevel">Reporting Level</label>
+                  <select id="reportingLevel">
+                    <option value="standard">Standard Report</option>
+                    <option value="detailed">Detailed Report + Photo Log</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label>Optional Add-Ons</label>
+                  <div class="checkbox-card-grid">
+                    <label class="check-card">
+                      <input type="checkbox" id="travelAdd" />
+                      <span class="check-copy">
+                        <strong>Travel surcharge</strong>
+                        <small>For extended travel or out-of-area work</small>
+                      </span>
+                    </label>
+
+                    <label class="check-card">
+                      <input type="checkbox" id="sameDayAdd" />
+                      <span class="check-copy">
+                        <strong>Same-day follow-up</strong>
+                        <small>Corrective action return visit support</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                  <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">Calculate Estimate</button>
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="inspectionType">Inspection Type</label>
-              <select id="inspectionType">
-                <option value="routine">Routine Weekly Inspection</option>
-                <option value="storm">Storm Event Inspection</option>
-                <option value="both">Weekly + Storm Event Support</option>
-              </select>
-            </div>
+            <div class="pricing-results">
+              <div class="result-card main-result-card">
+                <span class="result-label">Estimated Inspection Price</span>
+                <div class="result-price" id="estimatedPrice">$675</div>
+                <p class="result-note" id="resultNote">
+                  Based on a 1 acre site with a routine weekly inspection and standard reporting.
+                </p>
+              </div>
 
-            <div class="form-group">
-              <label for="reportingLevel">Reporting Level</label>
-              <select id="reportingLevel">
-                <option value="standard">Standard Report</option>
-                <option value="detailed">Detailed Report + Photo Log</option>
-              </select>
-            </div>
-
-            <div class="form-group checkbox-group">
-              <label><input type="checkbox" id="travelAdd" /> Include travel surcharge</label>
-              <label><input type="checkbox" id="sameDayAdd" /> Same-day corrective action follow-up</label>
-            </div>
-
-            <button class="btn btn-primary calc-btn" type="button" onclick="calculatePrice()">Calculate</button>
-          </div>
-
-          <div class="pricing-results">
-            <div class="result-card">
-              <span class="result-label">Estimated Inspection Price</span>
-              <div class="result-price" id="estimatedPrice">$675</div>
-              <p class="result-note" id="resultNote">
-                Based on a 1 acre site with a routine weekly inspection and standard reporting.
-              </p>
-            </div>
-
-            <div class="result-breakdown">
-              <h3>Pricing Breakdown</h3>
-              <ul id="breakdownList">
-                <li>Base inspection: $600</li>
-                <li>Site size adjustment: $75</li>
-                <li>Inspection type adjustment: $0</li>
-                <li>Reporting adjustment: $0</li>
-                <li>Optional add-ons: $0</li>
-              </ul>
+              <div class="result-breakdown">
+                <h3>Pricing Breakdown</h3>
+                <ul id="breakdownList">
+                  <li>Base inspection: $600</li>
+                  <li>Site size adjustment: $75</li>
+                  <li>Inspection type adjustment: $0</li>
+                  <li>Reporting adjustment: $0</li>
+                  <li>Optional add-ons: $0</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
