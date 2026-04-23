@@ -1,12 +1,13 @@
- <header class="site-header">
+@@ -14,7 +14,7 @@
+  <header class="site-header">
     <div class="container nav">
       <a href="#top" class="brand">
-        <img src="logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
         <img src="images/logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
+        <img src="logo.png" alt="Cascadia Stormwater logo" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-title">Cascadia Stormwater</span>
           <span class="brand-subtitle">Clear plans. Compliant sites. Protecting our water.</span>
-@@ -24,6 +24,7 @@
+@@ -24,7 +24,6 @@
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#examples">Examples</a>
@@ -14,16 +15,62 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
-@@ -48,7 +49,7 @@ <h1>Stormwater compliance with stronger water and resource protection focus.</h1
+@@ -44,12 +43,12 @@ <h1>Stormwater compliance with stronger water and resource protection focus.</h1
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">View Services</a>
+            <a href="#calculator" class="btn btn-secondary">Estimate Pricing</a>
+            <a href="#examples" class="btn btn-secondary">See Field Examples</a>
+          </div>
         </div>
 
         <div class="hero-logo-wrap">
-          <img src="logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
           <img src="images/logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
+          <img src="logo.png" alt="Cascadia Stormwater logo" class="hero-logo" />
         </div>
       </div>
     </section>
-@@ -190,6 +191,73 @@ <h2>Typical erosion and sediment control applications</h2>
+@@ -125,11 +124,11 @@ <h3>Compliance Solutions</h3>
+    <section id="examples" class="section examples">
+      <div class="container">
+        <div class="section-heading section-heading-light">
+          <p class="section-label section-label-light">Field Examples</p>
+          <p class="section-label">Field Examples</p>
+          <h2>Typical erosion and sediment control applications</h2>
+          <p>
+            These examples show common site controls, stabilization measures, inspection work,
+            and practical stormwater protection methods used in the field.
+            Upload your own images into the same folder as this file or into an <strong>images</strong>
+            folder. These filenames are already wired into the gallery below.
+          </p>
+        </div>
+
+@@ -155,13 +154,17 @@ <h2>Typical erosion and sediment control applications</h2>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/before-stabilization.jpg" alt="Before stabilization" />
+            <div class="gallery-label">Before Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/after-stabilization.jpg" alt="After stabilization" />
+            <div class="gallery-label">After Stabilization</div>
+            <div class="before-after">
+              <div class="before-after-panel">
+                <img src="images/before-stabilization.jpg" alt="Before stabilization" />
+                <span class="mini-tag">Before</span>
+              </div>
+              <div class="before-after-panel">
+                <img src="images/after-stabilization.jpg" alt="After stabilization" />
+                <span class="mini-tag">After</span>
+              </div>
+            </div>
+            <div class="gallery-label">Before / After Stabilization</div>
+          </article>
+
+          <article class="gallery-item">
+@@ -187,73 +190,6 @@ <h2>Typical erosion and sediment control applications</h2>
       </div>
     </section>
 
@@ -73,7 +120,7 @@
           <div class="pricing-results">
             <div class="result-card">
               <span class="result-label">Estimated Inspection Price</span>
-              <div class="result-price" id="estimatedPrice">$675</div>
+              <div class="result-price" id="estimatedPrice">$325</div>
               <p class="result-note" id="resultNote">
                 Based on a 1 acre site with a routine weekly inspection and standard reporting.
               </p>
@@ -82,7 +129,7 @@
             <div class="result-breakdown">
               <h3>Pricing Breakdown</h3>
               <ul id="breakdownList">
-                <li>Base inspection: $600</li>
+                <li>Base inspection: $250</li>
                 <li>Site size adjustment: $75</li>
                 <li>Inspection type adjustment: $0</li>
                 <li>Reporting adjustment: $0</li>
@@ -97,7 +144,7 @@
     <section class="section approach">
       <div class="container approach-grid">
         <div class="approach-copy">
-@@ -248,5 +316,73 @@ <h2>Stormwater and environmental field support</h2>
+@@ -312,73 +248,5 @@ <h2>Stormwater and environmental field support</h2>
       <p>1200-C Inspections • ESCP Plan Assistance • Compliance Solutions</p>
     </div>
   </footer>
@@ -118,7 +165,7 @@
       const travelAdd = document.getElementById("travelAdd").checked;
       const sameDayAdd = document.getElementById("sameDayAdd").checked;
 
-      let basePrice = 600;
+      let basePrice = 250;
       let sizeAdjustment = 0;
       let typeAdjustment = 0;
       let reportingAdjustment = 0;
