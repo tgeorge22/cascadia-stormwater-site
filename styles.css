@@ -408,6 +408,112 @@ a {
   z-index: 2;
 }
 
+.pricing {
+  background: linear-gradient(180deg, rgba(47, 95, 43, 0.05), rgba(255, 255, 255, 0.7));
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.pricing-form,
+.result-card,
+.result-breakdown {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: var(--navy-dark);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(8, 55, 97, 0.16);
+  border-radius: 14px;
+  padding: 0 14px;
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.checkbox-group input {
+  width: auto;
+  min-height: auto;
+}
+
+.calc-btn {
+  margin-top: 10px;
+}
+
+.pricing-results {
+  display: grid;
+  gap: 20px;
+}
+
+.result-label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--green-dark);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.result-price {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--navy-dark);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.result-note {
+  margin: 0;
+  color: var(--muted);
+}
+
+.result-breakdown h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--navy-dark);
+}
+
+.result-breakdown ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.result-breakdown li + li {
+  margin-top: 8px;
+}
+
 .approach {
   background:
     linear-gradient(180deg, rgba(47, 95, 43, 0.05), rgba(255, 255, 255, 0.48));
@@ -501,7 +607,8 @@ a {
   .contact-box,
   .gallery-grid,
   .intro-grid,
-  .services-grid {
+  .services-grid,
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 
@@ -557,7 +664,10 @@ a {
   .contact-box,
   .service-card,
   .intro-card,
-  .approach-panel {
+  .approach-panel,
+  .pricing-form,
+  .result-card,
+  .result-breakdown {
     padding: 24px;
   }
 }
